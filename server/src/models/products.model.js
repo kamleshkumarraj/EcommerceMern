@@ -37,6 +37,13 @@ const productSchema = new mongoose.Schema({
         required : [true , "please enter product stock"],
         maxLength : [4 , "stock cannot exceed 4 characters"]
     },
+    created_By : {
+        user_Id :{ 
+            type : mongoose.Schema.ObjectId,
+            ref : "userModels",
+            required : [true , "user id must be required"]
+        }
+    },
     reviews : [
         {
             name : {

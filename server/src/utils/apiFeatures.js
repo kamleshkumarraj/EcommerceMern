@@ -41,7 +41,6 @@ class apiFetures{
         const currPage = this.queryStr.page || 1;
         const skipPage = Number(productsAmount * (currPage-1));
         
-        console.log(typeof skipPage)
         this.query = this.query.limit(productsAmount).skip(skipPage)
         return this;
     }

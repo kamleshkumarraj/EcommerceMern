@@ -3,6 +3,7 @@ import ErrorHandler from "../../errors/errorHandler.js"
 import { asyncHandler } from "../../errors/asynHandler.js"
 
 const createProduct = asyncHandler(async (req , res , next) =>{
+    req.body.created_By = {user_Id : req.user.id}; 
     const product = await productsModel.create(req.body)
     if(product){
        return res.status(400).json({

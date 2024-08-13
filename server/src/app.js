@@ -1,9 +1,11 @@
 import express from 'express';
-import { registrationRoute } from './routes/registration/registration.route.js';
-import { products } from './routes/adminproducts/products.route.js';
+import cookieParser from 'cookie-parser';
 import ErrorHandler from './errors/errorHandler.js';
+import { products } from './routes/admin/products.route.js';
+import { authenticationRoute } from './routes/Authentication/auth.route.js';
 
 export const app = express();
+app.use(cookieParser())
 
 app.use(
   express.json({
@@ -11,7 +13,7 @@ app.use(
   }),
 );
 
-app.use('/api/v2', registrationRoute);
+app.use('/api/v2', authenticationRoute);
 app.use('/api/v2/products',products)
 
 //that is error handler middleware at normal error during api calling.
