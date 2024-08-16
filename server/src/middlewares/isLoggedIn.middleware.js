@@ -6,7 +6,13 @@ import ErrorHandler from "../errors/errorHandler.js";
 import { userModels } from "../models/userRegistration.model.js";
 
 const isLoggedIn = asyncHandler(async (req , res , next) =>{
-    const {tocken} = req.cookies;
+   console.log("running login ...")
+    let tocken = await req.cookies['tocken'];
+    console.log(JSON.stringify(req.cookies))
+      console.log(tocken)
+      tocken =  tocken ? tocken : req.query.tocken
+      console.log(tocken)
+
     if(!tocken){
         return next(new ErrorHandler("Please login to access this resource" , 405))
     }

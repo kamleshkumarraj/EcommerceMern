@@ -1,11 +1,17 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import ErrorHandler from './errors/errorHandler.js';
-import { products } from './routes/admin/products.route.js';
+import { productsAdminHandleRoute } from './routes/admin/products.route.js';
 import { authenticationRoute } from './routes/Authentication/auth.route.js';
+import { adminHandleUserRoute } from './routes/admin/users.route.js';
+import { handleUserProfileRoute } from './routes/userSelf/userHandleProfile.route.js';
+import { productHandleByUser } from './routes/productsUserRoute/productHandleByUser.route.js';
+import { orderHandlerRouter } from './routes/ordersRoute/order.route.js';
+import { orderHAndleByAdminRoute } from './routes/admin/orderHandle.route.js';
+import cors from 'cors';
 
 export const app = express();
-app.use(cookieParser())
+
 
 app.use(
   express.json({
@@ -13,9 +19,21 @@ app.use(
   }),
 );
 
-app.use('/api/v2', authenticationRoute);
-app.use('/api/v2/products',products)
+const corsOptions = {
+  origin: 'http://localhost:5173', // Frontend ka origin
+  credentials: true, // Access-Control-Allow-Credentials
+};
+app.use(cookieParser())
+app.use(cors(corsOptions));
 
+app.use('/api/v2/auth', authenticationRoute);
+app.use('/api/v2/admin/product',productsAdminHandleRoute)
+app.use('/api/v2/admin/user',adminHandleUserRoute)
+
+app.use('/api/v2/user',handleUserProfileRoute)
+app.use('/api/v2/user/product',productHandleByUser)
+app.use('/api/v2/user/order',orderHandlerRouter)
+app.use('/api/v2/admin/order',orderHAndleByAdminRoute)
 //that is error handler middleware at normal error during api calling.
 app.use((err,req , res , next) =>{
   err.status = err.status || 500;

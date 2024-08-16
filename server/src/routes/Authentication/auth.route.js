@@ -6,6 +6,7 @@ import isLoggedIn from "../../middlewares/isLoggedIn.middleware.js";
 import { forgotPassword } from "../../controllers/authentication/forgotPassword.js";
 import { resetPassword } from "../../controllers/authentication/resetPassword.js";
 import { changePassword } from "../../controllers/authentication/changePassword.js";
+import { directLogin } from "../../controllers/authentication/directLogin.js";
 
 export const authenticationRoute = Router();
 
@@ -15,3 +16,4 @@ authenticationRoute.route('/logout').get(loggedOut)
 authenticationRoute.route('/forgot-password').post(forgotPassword)
 authenticationRoute.route('/reset-password/:tocken').post(resetPassword)
 authenticationRoute.route('/change-password').put(isLoggedIn , changePassword)
+authenticationRoute.route('/direct-login').get(isLoggedIn , directLogin)

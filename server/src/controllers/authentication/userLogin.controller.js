@@ -19,7 +19,7 @@ const userLogin = asyncHandler(async (req , res , next) =>{
     if(! await user.passwordCompare(password)){
       return next(new ErrorHandler("Invalid email or password" , 402))
     }
-    
+    console.log("user login caliing ...")
     storetokenAndGetJWT(res , user , 201);
 })
 

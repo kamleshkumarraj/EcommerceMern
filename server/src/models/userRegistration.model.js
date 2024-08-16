@@ -37,11 +37,13 @@ const userSchema = new mongoose.Schema({
     avatar : {
         public_id : {
             type : String,
-            required : ['true' , "please enter public_id"]
+            required : ['true' , "please enter public_id"],
+            default : 'jndkjwbe7gwf8g7tcg6r6cf'
         },
         url : {
             type : String,
-            required : ['true' , "please enter url"]
+            required : ['true' , "please enter url"],
+            default : 'https://myImage/image.png'
         }
     },
     roles : {

@@ -10,7 +10,7 @@ export const singleProduct = asyncHandler(async (req , res , next) =>{
     }
     res.status(200).json({
         success : true,
-        msg : "products get successfully",
+        message : "products get successfully",
         product
     })
 })

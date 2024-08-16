@@ -13,7 +13,7 @@ export const updateProducts = asyncHandler(async (req , res , next) =>{
         })
        return res.status(200).json({
             success : true,
-            msg : "Product updated successfully",
+            message : "Product updated successfully",
             product
         })
     }

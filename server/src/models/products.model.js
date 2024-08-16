@@ -18,16 +18,23 @@ const productSchema = new mongoose.Schema({
         type : Number,
         default : 0
     },
+    thumbnail :{
+        type : String,
+        required : [true , "Please enter product thumbnail"],
+        default : 'https://photos.google.com/photos.jpg'
+    },
     images :[{
         public_id : {
             type : String,
-            required : true
+            required : true,
+            default : 'bcjhdsbfjhbd8238t4rhbfvb'
         },
         url :{
             type : String,
-            required : true
+            required : true,
+            default : 'https://ecommerce/myImage/image.png'
         }
-    }],
+        }],
     category : {
         type : String,
         required : [true , "Please enter product category"]
@@ -53,6 +60,15 @@ const productSchema = new mongoose.Schema({
             rating : {
                 type : Number,
                 required : true
+            },
+            user : {
+                type : mongoose.Schema.ObjectId,
+                ref : "usersModel",
+                required : true
+            },
+            comment : {
+                type :String,
+                
             }
         }
     ]

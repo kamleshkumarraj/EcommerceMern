@@ -1,0 +1,86 @@
+#hero-section , #header{
+    background-image: linear-gradient(90deg,rgba(80, 160, 123, 0.441), rgba(95, 47, 80, 0.523),rgba(50, 92, 72, 0.495)) , url(https://wallpapers.com/images/featured/laptop-murjp1nk4lp1idlt.jpg) ;
+    background-attachment: fixed;
+    background-size: cover;
+    
+    
+}
+#img-anime{
+    animation: anime 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+#humbuger-menu,#menu{
+    transition: all .5s linear;
+}
+.toastBody{
+    z-index: 900000000;
+    font-size: 1.4rem;
+}
+
+#menu-box-visible{
+    top : 140%;
+    opacity: 1;
+    transition: all .2s linear;
+    visibility: visible;
+    background-image: linear-gradient(45deg,rgb(147, 8, 228) , rgb(195, 9, 233)) ;
+    color: white;
+}
+
+#menu-box-hidden{
+    /* display: hidden; */
+    visibility: hidden;
+    opacity: 0;
+}
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  #total-income,#total-expanse,#total-budget{
+    background: linear-gradient(45deg , #FFBA96 , #FE8C96);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+#total-expanse{
+    background: linear-gradient(45deg ,#88C6F7 , #2E94E7 );
+}
+#total-budget{
+    background: linear-gradient(45deg , #76D8CE , #2ee6cd);
+}
+
+#total-income::after,#total-expanse::after,#total-budget::after{
+    content: "";
+    position: absolute;
+    width : 25rem;
+    height : 25rem;
+    border-radius: 50%;
+    right: 0%;
+    transform: translateX(40%);
+    top: -6%;
+    background-color: #fcf8f832;
+
+}
+#total-income::before,#total-expanse::before,#total-budget::before{
+    content: "";
+    position: absolute;
+    width : 25rem;
+    height : 25rem;
+    border-radius: 50%;
+    right: -6%;
+    transform: translateY(40%);
+    bottom: -6%;
+    background-color: #fcf8f832;
+
+}

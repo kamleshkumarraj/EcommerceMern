@@ -8,8 +8,8 @@ const loggedOut = asyncHandler(async (req , res , next) =>{
         httpOnly : true
     })
     res.status(200).json({
-        staus : true,
-        msg : "Logged out successfully"
+        success : true,
+        message : "Logged out successfully"
     })
 })
 

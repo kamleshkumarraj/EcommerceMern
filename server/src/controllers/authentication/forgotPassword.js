@@ -21,7 +21,7 @@ export const  forgotPassword = asyncHandler(async (req, res, next) =>{
 
          res.status(200).json({
             success : true,
-            msg : "Reset pawword link is successfully sent"
+            message : "Reset pawword link is successfully sent"
         })
     }
     catch(err){

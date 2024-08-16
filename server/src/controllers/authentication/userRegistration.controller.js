@@ -6,7 +6,12 @@ import { storetokenAndGetJWT } from "../../utils/storeJWTincookie.js";
 export const registrationContoller = asyncHandler(async (req , res) =>{
     //registration process.
     //step 1 : check user is alredy registered or not. that is alredy verified from userSchema.
-
+    console.log(req.body)
     const user = await userModels.create(req.body)
-    storetokenAndGetJWT(res,user,201)  
+    
+    res.status(200).json({
+        success : true,
+        message : "User registered successfully",
+        user
+    })
 })

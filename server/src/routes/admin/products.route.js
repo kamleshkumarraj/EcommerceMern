@@ -6,11 +6,14 @@ import { singleProduct } from '../../controllers/admin/getsingleproduct.controll
 import { getAllProducts } from '../../controllers/admin/getallproducts.controller.js';
 import isLoggedIn from '../../middlewares/isLoggedIn.middleware.js';
 import isAdmin from '../../middlewares/isAdmin.js';
+import { deleteReview } from '../../controllers/admin/deleteReview.js';
 
-export const products = Router();
+export const productsAdminHandleRoute = Router();
 
-products.route('/new').post(isLoggedIn ,isAdmin,createProduct);
+productsAdminHandleRoute.route('/new').post(isLoggedIn ,isAdmin,createProduct);
 
-products.route('/:id').put(isLoggedIn,isAdmin,updateProducts).delete(isLoggedIn,isAdmin,deleteProduct).get(singleProduct)
+productsAdminHandleRoute.route('/:id').put(isLoggedIn,isAdmin,updateProducts).delete(isLoggedIn,isAdmin,deleteProduct).get(singleProduct)
 
-products.route('/').get(isLoggedIn,getAllProducts)
+productsAdminHandleRoute.route('/').get(isLoggedIn,getAllProducts)
+
+productsAdminHandleRoute.route('/delete-review').delete(isLoggedIn , isAdmin , deleteReview)
